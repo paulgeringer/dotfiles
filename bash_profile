@@ -6,6 +6,8 @@ source ~/.aliases
 
 ssh-add > /dev/null 2>&1
 
+alias ssh='TERM=xterm ssh'
+
 export DYLD_LIBRARY_PATH="/Applications/Oracle" 
 export ORACLE_HOME="/Applications/Oracle"
 export SQLPATH="/Applications/Oracle"
@@ -37,7 +39,7 @@ settitle() {
     printf "\033k$1\033\\"
 }
 
-ssh() {
+_ssh() {
     settitle "$*"
     command ssh "$@"
     settitle "bash"
