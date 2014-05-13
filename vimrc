@@ -5,6 +5,7 @@ syntax sync minlines=256
 
 set mouse=a
 set hlsearch
+autocmd FileType crontab setlocal nowritebackup
 
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
