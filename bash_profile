@@ -6,8 +6,6 @@ source ~/.aliases
 
 ssh-add > /dev/null 2>&1
 
-alias ssh='TERM=xterm ssh'
-
 export DYLD_LIBRARY_PATH="/Applications/Oracle" 
 export ORACLE_HOME="/Applications/Oracle"
 export SQLPATH="/Applications/Oracle"
@@ -27,11 +25,14 @@ export VISUAL=/usr/local/bin/vim
 export JBOSS_HOME=/Users/pgeringer/dev/jboss-5.1.0.GA
 export PATH=/Users/pgeringer/Development/ib-dev/bin:$PATH
 export ORACLEHOST=192.168.42.218
+export TERM=screen
 
-# Speed up RSpec!
-export RUBY_FREE_MIN=200000
-export RUBY_HEAP_MIN_SLOTS=2000000
-export RUBY_GC_MALLOC_LIMIT=9000000
+# avoid duplicates..
+export HISTCONTROL=ignoredups:erasedups  
+# append history entries..
+shopt -s histappend
+# After each command, save and reload history
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 HISTFILESIZE=50000
 
@@ -39,7 +40,7 @@ settitle() {
     printf "\033k$1\033\\"
 }
 
-_ssh() {
+ssh() {
     settitle "$*"
     command ssh "$@"
     settitle "bash"
