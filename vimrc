@@ -57,6 +57,8 @@ colorscheme tomorrow-night
 
 map <C-N> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
+hi CursorColumn cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
 
 filetype plugin indent on
 
@@ -66,6 +68,8 @@ nnoremap <Leader>so :so %<CR>
 nnoremap <Leader>bu :BundleInstall<CR>
 nnoremap <Leader>vrc :e ~/.vimrc<CR>
 nnoremap <Leader>bpr :e ~/.bash_profile<CR>
+nnoremap <Leader>ll :set cursorline!<CR>
+nnoremap <Leader>lk :set cursorcolumn!<CR>
 nnoremap <Leader>ctb :CommandTBuffer<CR>
 nnoremap <Leader>ctf :CommandTFlush<CR>
 nnoremap <Leader>gb :Gblame<CR>
