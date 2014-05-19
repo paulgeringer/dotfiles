@@ -46,6 +46,10 @@ Plugin 'epmatsw/ag.vim'
 Plugin 'paulgeringer/vim-tomorrow-night-theme'
 Plugin 'stephpy/vim-yaml'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 filetype plugin indent on
