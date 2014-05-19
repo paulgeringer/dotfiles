@@ -31,26 +31,32 @@ set foldenable
 set foldlevelstart=10
 set foldmethod=syntax
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails.git'
-Bundle 'https://github.com/scrooloose/nerdtree.git' 
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdcommenter'
-Bundle '907th/vim-auto-save'
-Bundle 'epmatsw/ag.vim'
-Bundle 'paulgeringer/vim-tomorrow-night-theme'
-Bundle 'stephpy/vim-yaml'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'rodjek/vim-puppet'
-Bundle 'scrooloose/syntastic'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails.git'
+Plugin 'https://github.com/scrooloose/nerdtree.git' 
+Plugin 'vim-scripts/taglist.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdcommenter'
+Plugin '907th/vim-auto-save'
+Plugin 'epmatsw/ag.vim'
+Plugin 'paulgeringer/vim-tomorrow-night-theme'
+Plugin 'stephpy/vim-yaml'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'rodjek/vim-puppet'
+Plugin 'scrooloose/syntastic'
+
+call vundle#end()
+filetype plugin indent on
 
 set grepprg=ag\ -nH\ $*
-let g:tex_flavor='latex'
 
 let g:auto_save=1
 
@@ -62,12 +68,10 @@ let NERDTreeShowHidden=1
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
 
-filetype plugin indent on
-
 nnoremap <Leader>sp :set paste!<CR>
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>so :so %<CR>
-nnoremap <Leader>bu :BundleInstall<CR>
+nnoremap <Leader>bu :PluginInstall<CR>
 nnoremap <Leader>vrc :e ~/.vimrc<CR>
 nnoremap <Leader>bpr :e ~/.bash_profile<CR>
 nnoremap <Leader>ll :set cursorline!<CR>
