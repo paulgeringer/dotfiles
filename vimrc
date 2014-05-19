@@ -46,6 +46,8 @@ Bundle 'epmatsw/ag.vim'
 Bundle 'paulgeringer/vim-tomorrow-night-theme'
 Bundle 'stephpy/vim-yaml'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'rodjek/vim-puppet'
+Bundle 'scrooloose/syntastic'
 
 set grepprg=ag\ -nH\ $*
 let g:tex_flavor='latex'
