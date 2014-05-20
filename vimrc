@@ -25,6 +25,7 @@ set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
+set spell
 
 " Folding
 set foldenable
@@ -55,6 +56,12 @@ Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:ycm_key_list_select_completion = ['<c-tab>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
 
 set grepprg=ag\ -nH\ $*
 
