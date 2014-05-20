@@ -24,9 +24,13 @@ if [ "$(whoami)" != "paulgeringer" ]; then
   export JBOSS_HOME=/Users/pgeringer/dev/jboss-5.1.0.GA
   export PATH=/Users/pgeringer/Development/ib-dev/bin:$PATH
   export ORACLEHOST=192.168.42.218
+  export TERM=screen
 fi
 
-export TERM=screen
+if [ "$(whoami)" == "paulgeringer" ]; then
+  export TERM=screen-256color
+fi
+
 export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 

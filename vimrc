@@ -25,6 +25,7 @@ set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
+set hidden
 set spell
 
 " Folding
@@ -93,3 +94,4 @@ nnoremap <Leader>rd Orequire 'debugger'; debugger<ESC>
 nnoremap <Leader>rt :!ctags -R<CR>
 nnoremap <Leader>nw :set nowrap!<CR>
 nnoremap <Leader>sh :set hidden!<CR>
+nnoremap <Leader>p :PROSE<CR>
