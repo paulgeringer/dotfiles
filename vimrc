@@ -95,3 +95,4 @@ nnoremap <Leader>rt :!ctags -R<CR>
 nnoremap <Leader>nw :set nowrap!<CR>
 nnoremap <Leader>sh :set hidden!<CR>
 nnoremap <Leader>p :PROSE<CR>
+nnoremap <Leader>gg gggqG<CR>
