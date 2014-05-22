@@ -25,8 +25,9 @@ set undofile
 set undodir=$HOME/.vim/undo
 set undolevels=1000
 set undoreload=10000
+set backupdir=~/.vim/backups,.
+set directory=~/.vim/backups,.
 set hidden
-set spell
 
 " Folding
 set foldenable
