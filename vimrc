@@ -35,13 +35,16 @@ set foldenable
 set foldlevelstart=10
 set foldmethod=syntax
 
+" EOL Character, :set list!
+set listchars=eol:¬
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails.git'
-Plugin 'https://github.com/scrooloose/nerdtree.git' 
+Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
@@ -75,6 +78,7 @@ colorscheme tomorrow-night
 
 map <C-N> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
 
@@ -99,3 +103,4 @@ nnoremap <Leader>sh :set hidden!<CR>
 nnoremap <Leader>p :PROSE<CR>
 nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
+nnoremap <Leader>li :set list!<CR>

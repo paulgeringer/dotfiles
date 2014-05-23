@@ -7,7 +7,7 @@ source ~/.aliases
 ssh-add > /dev/null 2>&1
 
 if [ "$(whoami)" != "paulgeringer" ]; then
-  export DYLD_LIBRARY_PATH="/Applications/Oracle" 
+  export DYLD_LIBRARY_PATH="/Applications/Oracle"
   export ORACLE_HOME="/Applications/Oracle"
   export SQLPATH="/Applications/Oracle"
   export TNS_ADMIN="/Applications/Oracle"
@@ -35,7 +35,7 @@ export EDITOR=/usr/local/bin/vim
 export VISUAL=/usr/local/bin/vim
 
 # avoid duplicates..
-export HISTCONTROL=ignoredups:erasedups  
+export HISTCONTROL=ignoredups:erasedups
 # append history entries..
 shopt -s histappend
 # After each command, save and reload history
