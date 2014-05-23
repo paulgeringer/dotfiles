@@ -98,3 +98,4 @@ nnoremap <Leader>nw :set nowrap!<CR>
 nnoremap <Leader>sh :set hidden!<CR>
 nnoremap <Leader>p :PROSE<CR>
 nnoremap <Leader>gg gggqG<CR>
+nnoremap <Leader>mm :WHITSPC<CR>
