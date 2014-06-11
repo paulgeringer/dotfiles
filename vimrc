@@ -36,7 +36,7 @@ set foldlevelstart=10
 set foldmethod=syntax
 
 " EOL Character, :set list!
-set listchars=eol:¬
+"set listchars=eol:¬
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -59,6 +59,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rodjek/vim-puppet'
 Plugin 'scrooloose/syntastic'
+Plugin 'vim-pandoc/vim-pantondoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
 
 call vundle#end()
 filetype plugin indent on
