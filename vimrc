@@ -7,6 +7,7 @@ set mouse=a
 set hlsearch
 autocmd FileType crontab setlocal nowritebackup
 autocmd BufRead bash_profile,.bash_profile,aliases,.aliases set syn=sh
+autocmd BufRead,BufNewFile *.pp set filetype=yaml
 
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
@@ -57,7 +58,7 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'rodjek/vim-puppet'
+"Plugin 'rodjek/vim-puppet'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-pandoc/vim-pantondoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
@@ -106,3 +107,8 @@ nnoremap <Leader>p :PROSE<CR>
 nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
+
+
+let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'active_filetypes': ['ruby'],
+                               \ 'passive_filetypes': ['puppet'] }
