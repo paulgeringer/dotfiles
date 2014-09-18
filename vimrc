@@ -1,7 +1,7 @@
 syntax enable
 set nocompatible
 filetype off
-syntax sync minlines=256
+"syntax sync minlines=256 THIS IS EVIL AND SLOWS EVERYTHING
 
 set mouse=a
 set hlsearch
@@ -32,9 +32,9 @@ set directory=~/.vim/backups,.
 set hidden
 
 " Folding
-set foldenable
-set foldlevelstart=10
-set foldmethod=syntax
+"set foldenable
+"set foldlevelstart=10
+"set foldmethod=syntax
 
 " EOL Character, :set list!
 "set listchars=eol:¬
