@@ -13,11 +13,8 @@ if [ "$(whoami)" != "paulgeringer" ]; then
   export TNS_ADMIN="/Applications/Oracle"
   export NLS_LANG="AMERICAN_AMERICA.UTF8"
   export PATH=$PATH:$DYLD_LIBRARY_PATH
-  export RC_ARCHS=i386
   export INSTANT_CLIENT_DIRECTORY="/Applications/Oracle"
-  export CC=/usr/local/bin/gcc-4.2
   export PATH=$PATH:$HOME/.rvm/bin
-  export PATH=$PATH:/usr/local/bin/apache-activemq-5.7.0/bin
   export PS1="\\w:\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
   export GREP_OPTIONS='--color=auto'
   export PATH=$PATH:/Users/pgeringer/Development/ib-dev/script
