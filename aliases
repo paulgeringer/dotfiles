@@ -1,0 +1,11 @@
+# vi: syntax=sh
+
+if [ -e ~/.aliases.local ]
+then
+  source ~/.aliases.local
+fi
+
+if [ -e ~/.aliases.private ]
+then
+  source ~/.aliases.private
+fi
