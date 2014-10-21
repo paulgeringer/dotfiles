@@ -14,4 +14,3 @@ function! WhiteSpaceToggle()
     match ExtraWhitespace /\s\+$/
   endif
 endfunc
-
