@@ -18,9 +18,7 @@ if [ "$(whoami)" != "paulgeringer" ]; then
   export PS1="\\w:\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
   export GREP_OPTIONS='--color=auto'
   export PATH=$PATH:/Users/pgeringer/Development/ib-dev/script
-  export JBOSS_HOME=/Users/pgeringer/dev/jboss-5.1.0.GA
   export PATH=/Users/pgeringer/Development/ib-dev/bin:$PATH
-  export ORACLEHOST=192.168.42.218
   export TERM=screen
 fi
 
@@ -29,7 +27,7 @@ if [ "$(whoami)" == "paulgeringer" ]; then
 fi
 
 export EDITOR=/usr/local/bin/vim
-export VISUAL=/usr/local/bin/vim
+export VISUAL=$EDITOR
 
 # avoid duplicates..
 export HISTCONTROL=ignoredups:erasedups
@@ -51,5 +49,5 @@ ssh() {
 }
 
 if [ -f ~/.git-completion.bash ]; then
-    . ~/.git-completion.bash
+    source ~/.git-completion.bash
 fi
