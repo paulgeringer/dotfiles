@@ -1,8 +1,8 @@
 # vi: syntax=sh
 
-if [ -e ~/.aliases.local ]
+if [ -e ~/.aliases.public ]
 then
-  source ~/.aliases.local
+  source ~/.aliases.public
 fi
 
 if [ -e ~/.aliases.private ]
