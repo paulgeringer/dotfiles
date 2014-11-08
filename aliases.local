@@ -10,5 +10,11 @@ alias flushdns='sudo killall -HUP mDNSResponder'
 alias tug="echo \"You're an idiot and can't spell tig properly\""
 alias tmuxnew='tmux -2 -S /var/tmux/pairing new-session -s TMUXPAIR'
 alias tmuxjoin='tmux -2 -S /var/tmux/pairing attach -t TMUXPAIR'
-alias .='echo "Didja really mean to source that file? How about trying: ..."'
-alias ...='source $@'
+alias dotfiles='cd ~/dotfiles'
+alias dot='cd ~/dotfiles'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ......="cd ../../.."
+alias ........="cd ../../../.."
