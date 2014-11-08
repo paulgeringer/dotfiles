@@ -73,6 +73,7 @@ function alternate_git_branch_parse() {
   git branch 2>/dev/null | grep '^*' | colrm 1 2
 }
 
+# PS1 Colors?
 RED="\e[0;31m"
 YELLOW="\e[0;33m"
 GREEN="\e[0;32m"
@@ -83,17 +84,29 @@ BOLD_RED="\e[1;31m"
 BOLD_CYAN="\e[1;36m"
 BOLD_PURPLE="\e[1;35m"
 
+# Echo colors?
+ECHO_RED="\033[0;31m"
+ECHO_YELLOW="\033[0;33m"
+ECHO_GREEN="\033[0;32m"
+ECHO_PURPLE="\033[0;35m"
+ECHO_BLUE="\033[0;34m"
+ECHO_NO_COLOR="\033[0m"
+ECHO_BOLD_RED="\033[1;31m"
+ECHO_BOLD_CYAN="\033[1;36m"
+ECHO_BOLD_PURPLE="\033[1;35m"
+ECHO_BOLD_PURPLE="\033[1;35m"
+
 function get_git_color() {
-  if [[ $(parse_git_branch) == "master" ]]
+  if [[ $(parse_git_branch) =~ "master" ]]
   then
-    GIT_STRING=$BOLD_CYAN$(parse_git_branch)$NO_COLOR
-  elsif [[ $(parse_git_branch) =~ prod ]]
-    GIT_STRING=$BOLD_RED$(parse_git_branch)$NO_COLOR
+    echo -e "$ECHO_BOLD_CYAN$(parse_git_branch)$ECHO_NO_COLOR"
+  elif [[ $(parse_git_branch) =~ "prod" ]]
+  then
+    echo -e "$ECHO_BOLD_RED$(parse_git_branch)$ECHO_NO_COLOR"
   else
-    GIT_STRING=$BOLD_PURPLE$(parse_git_branch)$NO_COLOR
+    echo -e "$ECHO_BOLD_PURPLE$(parse_git_branch)$ECHO_NO_COLOR"
   fi
-  printf "$GIT_STRING"
 }
 
-export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR$BOLD_CYAN (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))$NO_COLOR$PURPLE\$$NO_COLOR \n∴ "
-#export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR\$(get_git_color)$GIT_STRING$NO_COLOR$PURPLE\$$NO_COLOR \n∴ "
+#export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR$BOLD_CYAN (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))$NO_COLOR$PURPLE\$$NO_COLOR \n∴ "
+export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR\$(get_git_color)$PURPLE\$$NO_COLOR \n∴ "
