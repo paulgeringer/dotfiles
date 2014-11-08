@@ -2,12 +2,10 @@ require 'rake'
 
 files = Rake::FileList.new("**/*") do |file|
   file.exclude(/^vim$/) 
-  file.exclude(/^vim\/plugin$/) 
+  file.exclude(/^vim\/\w$/) 
   file.exclude(/^ssh$/)
   file.exclude("*~*")
-  file.exclude("Rakefile")
-  file.exclude("Gemfile*")
-  file.exclude("README*")
+  file.exclude(/[A-Z].*/)
   file.exclude("boot*")
   file.exclude("mutt*")
 end
