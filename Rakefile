@@ -7,6 +7,7 @@ files = Rake::FileList.new("**/*") do |file|
   file.exclude("*~*")
   file.exclude("Rakefile")
   file.exclude("Gemfile*")
+  file.exclude("README*")
   file.exclude("boot*")
   file.exclude("mutt*")
 end
