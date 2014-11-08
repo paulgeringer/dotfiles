@@ -1,0 +1,8 @@
+[user]
+	name = Paul Geringer
+	email = paul.j.geringer@gmail.com
+[push]
+	default = current
+[alias]
+	co = checkout
+	st = status
