@@ -1,0 +1,3 @@
+# RVM, stop telling me to update
+
+rvm_autoupdate_flag=0
