@@ -1,7 +1,15 @@
+# vi: ft=sh
+
 # def rvm_crap
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-export PATH="$PATH:$HOME/.rvm/bin" 
+if [[ -s "$HOME/.rvm/scripts/rvm" ]]
+then
+  source "$HOME/.rvm/scripts/rvm"
+fi
+export PATH="$PATH:$HOME/.rvm/bin"
 # end rvm_crap
+
+
+# Completion for bash and git
 
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
   source $(brew --prefix)/etc/bash_completion
@@ -11,102 +19,33 @@ if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
 fi
 
+# So CTRL-S doesn't freeze the terminal, apparently...
 stty start undef stop undef
 
 source ~/.aliases
 
+source ~/.ps1_settings
+
+# Get my identity added in each shell
 ssh-add > /dev/null 2>&1
 
-if [ "$(whoami)" != "paulgeringer" ]; then
-  export DYLD_LIBRARY_PATH="/Applications/Oracle"
-  export ORACLE_HOME="/Applications/Oracle"
-  export SQLPATH="/Applications/Oracle"
-  export TNS_ADMIN="/Applications/Oracle"
-  export NLS_LANG="AMERICAN_AMERICA.UTF8"
-  export PATH=$PATH:$DYLD_LIBRARY_PATH
-  export INSTANT_CLIENT_DIRECTORY="/Applications/Oracle"
-  export PATH=$PATH:$HOME/.rvm/bin
-  #export PS1="\\w:\$(git branch 2>/dev/null | grep '^*' | colrm 1 2)\$ "
-  export GREP_OPTIONS='--color=auto'
-  export PATH=$PATH:/Users/pgeringer/Development/ib-dev/script
-  export PATH=/Users/pgeringer/Development/ib-dev/bin:$PATH
-  export TERM=screen
+# Hooray work junk
+if [[ "$(whoami)" == "pgeringer" ]]
+then
+  source ~/.oracle_junk
 fi
 
-if [ "$(whoami)" == "paulgeringer" ]; then
-  export TERM=screen-256color
-fi
-
+# Standard Stuff
 export EDITOR=/usr/local/bin/vim
 export VISUAL=$EDITOR
+export TERM=screen-256color
+export HISTFILESIZE=50000
+export GREP_OPTIONS="--color=auto"
 
-# avoid duplicates..
+## TMUX WINDOW HISTORY SHARING GROSSNESS
+
 export HISTCONTROL=ignoredups:erasedups
-# append history entries..
 shopt -s histappend
+
 # After each command, save and reload history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-
-HISTFILESIZE=50000
-
-settitle() {
-    printf "\033k$1\033\\"
-}
-
-ssh() {
-    settitle "$*"
-    command ssh "$@"
-    settitle "bash"
-}
-
-if [ -f ~/.git-completion.bash ]; then
-    source ~/.git-completion.bash
-fi
-
-# Git PS1 Stuff
-
-function parse_git_branch () {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-function alternate_git_branch_parse() {
-  git branch 2>/dev/null | grep '^*' | colrm 1 2
-}
-
-# PS1 Colors?
-RED="\e[0;31m"
-YELLOW="\e[0;33m"
-GREEN="\e[0;32m"
-PURPLE="\e[0;35m"
-BLUE="\e[0;34m"
-NO_COLOR="\e[0m"
-BOLD_RED="\e[1;31m"
-BOLD_CYAN="\e[1;36m"
-BOLD_PURPLE="\e[1;35m"
-
-# Echo colors?
-ECHO_RED="\033[0;31m"
-ECHO_YELLOW="\033[0;33m"
-ECHO_GREEN="\033[0;32m"
-ECHO_PURPLE="\033[0;35m"
-ECHO_BLUE="\033[0;34m"
-ECHO_NO_COLOR="\033[0m"
-ECHO_BOLD_RED="\033[1;31m"
-ECHO_BOLD_CYAN="\033[1;36m"
-ECHO_BOLD_PURPLE="\033[1;35m"
-ECHO_BOLD_PURPLE="\033[1;35m"
-
-function get_git_color() {
-  if [[ $(parse_git_branch) =~ "master" ]]
-  then
-    echo -e "$ECHO_BOLD_CYAN$(parse_git_branch)$ECHO_NO_COLOR"
-  elif [[ $(parse_git_branch) =~ "prod" ]]
-  then
-    echo -e "$ECHO_BOLD_RED$(parse_git_branch)$ECHO_NO_COLOR"
-  else
-    echo -e "$ECHO_BOLD_PURPLE$(parse_git_branch)$ECHO_NO_COLOR"
-  fi
-}
-
-#export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR$BOLD_CYAN (\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))$NO_COLOR$PURPLE\$$NO_COLOR \n∴ "
-export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR\$(get_git_color)$PURPLE\$$NO_COLOR \n∴ "

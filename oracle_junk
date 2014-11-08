@@ -1,0 +1,7 @@
+export DYLD_LIBRARY_PATH="/Applications/Oracle"
+export ORACLE_HOME="/Applications/Oracle"
+export SQLPATH="/Applications/Oracle"
+export TNS_ADMIN="/Applications/Oracle"
+export NLS_LANG="AMERICAN_AMERICA.UTF8"
+export PATH=$PATH:$DYLD_LIBRARY_PATH
+export INSTANT_CLIENT_DIRECTORY="/Applications/Oracle"
