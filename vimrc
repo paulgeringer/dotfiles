@@ -1,10 +1,6 @@
 syntax enable
-set nocompatible
-filetype off
 "syntax sync minlines=256 THIS IS EVIL AND SLOWS EVERYTHING
 
-set mouse=a
-set hlsearch
 autocmd FileType crontab setlocal nowritebackup
 autocmd BufRead bash_profile,.bash_profile,aliases,.aliases set syn=sh
 autocmd BufRead,BufNewFile *.pp set filetype=yaml
@@ -13,6 +9,8 @@ if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
 
+set mouse=a
+set hlsearch
 set ignorecase
 set smartcase
 set incsearch
@@ -31,40 +29,14 @@ set backupdir=~/.vim/backups,.
 set directory=~/.vim/backups,.
 set hidden
 
-" Folding
-"set foldenable
-"set foldlevelstart=10
-"set foldmethod=syntax
+" Bundle stuff after here
 
-" EOL Character, :set list!
-"set listchars=eol:¬
+if filereadable(expand("~/.vundle.bundles"))
+  source ~/.vundle.bundles
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails.git'
-Plugin 'https://github.com/scrooloose/nerdtree.git'
-Plugin 'vim-scripts/taglist.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdcommenter'
-Plugin '907th/vim-auto-save'
-Plugin 'epmatsw/ag.vim'
-Plugin 'paulgeringer/vim-tomorrow-night-theme'
-Plugin 'stephpy/vim-yaml'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-"Plugin 'rodjek/vim-puppet'
-Plugin 'scrooloose/syntastic'
-Plugin 'vim-pandoc/vim-pantondoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-
-call vundle#end()
-filetype plugin indent on
+set background=dark
+colorscheme tomorrow-night
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -75,9 +47,6 @@ let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
 set grepprg=ag\ -nH\ $*
 
 let g:auto_save=1
-
-set background=dark
-colorscheme tomorrow-night
 
 map <C-N> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -107,7 +76,6 @@ nnoremap <Leader>p :PROSE<CR>
 nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
-
 
 let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'active_filetypes': ['ruby'],

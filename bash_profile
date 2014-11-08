@@ -26,6 +26,8 @@ source ~/.aliases
 
 source ~/.ps1_settings
 
+source ~/.vundle_install
+
 # Get my identity added in each shell
 ssh-add > /dev/null 2>&1
 
