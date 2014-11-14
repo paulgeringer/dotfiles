@@ -1,7 +1,6 @@
 eval $(ssh-agent) > /dev/null 2>&1
 
 function cleanup {
-  echo "Killing SSH-Agent"
   kill -9 $SSH_AGENT_PID
 }
 
