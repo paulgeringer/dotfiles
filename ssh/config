@@ -1,8 +1,15 @@
 Host *
   ServerAliveInterval 300
   ServerAliveCountMax 2
+  ConnectionAttempts 10
 
 Host doc
   User paulgeringer
   Hostname 104.236.11.196
+  Forwardagent yes
+
+Host raspberry
+  User pi
+  Hostname paulgeringer.noip.me
+  Port 23
   Forwardagent yes
