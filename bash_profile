@@ -11,7 +11,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Completion for bash and git
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
+if [[ ($(uname) == 'Darwin') && (-f $(brew --prefix)/etc/bash_completion) ]]; then
   source $(brew --prefix)/etc/bash_completion
 fi
 
