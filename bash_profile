@@ -1,13 +1,5 @@
 # vi: ft=sh
 
-# def rvm_crap
-if [[ -s "$HOME/.rvm/scripts/rvm" ]]
-then
-  source "$HOME/.rvm/scripts/rvm"
-fi
-export PATH="$PATH:$HOME/.rvm/bin"
-# end rvm_crap
-
 
 # Completion for bash and git
 
@@ -53,3 +45,12 @@ shopt -s histappend
 
 # After each command, save and reload history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# def rbenv crap
+if [[ -s "$HOME/.rbenv" ]]
+then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  export RBENV_ROOT=/usr/local/var/rbenv
+  eval "$(rbenv init -)"
+fi
+# end rbenv crap
