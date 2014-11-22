@@ -85,6 +85,10 @@ nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
 
+" Best thing ever right here
+nnoremap <Leader>y m`^<S-">*y$``h<ESC> " Copy line to OS X copy/paste buffer
+vnoremap <Leader>y m`<S-">*y``h<ESC> " Copy visual selection to OS X copy/paste buffer
+
 let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'active_filetypes': ['ruby'],
                                \ 'passive_filetypes': ['puppet'] }
