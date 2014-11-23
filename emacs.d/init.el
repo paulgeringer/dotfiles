@@ -4,9 +4,12 @@
 
 (require 'package)
 (package-initialize)
+(setq linum-format " %d ")
+(setq backup-directory-alist `(("." . "~/.emacs.d/saves")))
 
 (setq inhibit-startup-message t)
 (menu-bar-mode -1)
+(global-linum-mode 1)
 
 (require 'evil)
 (require 'evil-leader)
@@ -22,3 +25,9 @@
 
 (global-evil-leader-mode)
 (evil-mode 1)
+
+(require 'color-theme)
+(color-theme-initialize)
+(load-file "~/.emacs.d/color-theme-tomorrow.el")
+(require 'color-theme-tomorrow)
+(color-theme-tomorrow--define-theme night)
