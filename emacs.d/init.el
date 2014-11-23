@@ -5,9 +5,11 @@
 (require 'package)
 (package-initialize)
 
+(setq inhibit-startup-message t)
 (menu-bar-mode -1)
 
 (require 'evil)
+(require 'evil-leader)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
@@ -18,4 +20,5 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
+(global-evil-leader-mode)
 (evil-mode 1)
