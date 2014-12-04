@@ -3,8 +3,12 @@
 
 # Completion for bash and git
 
-if [[ ($(uname) == 'Darwin') && (-f $(brew --prefix)/etc/bash_completion) ]]; then
-  source $(brew --prefix)/etc/bash_completion
+if [[ ($(uname) == 'Darwin') ]]
+then
+  if [[ (-f $(brew --prefix)/etc/bash_completion) ]]
+  then
+    source $(brew --prefix)/etc/bash_completion
+  fi
 fi
 
 if [ -f ~/.git-completion.bash ]; then
@@ -21,6 +25,11 @@ source ~/.ps1_settings
 source ~/.vundle_install
 
 source ~/.ssh_fix
+
+if [ -e ~/.locale ]
+then
+  source ~/.locale
+fi
 
 # Get my identity added in each shell
 ssh-add > /dev/null 2>&1

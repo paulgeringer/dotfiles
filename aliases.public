@@ -6,7 +6,7 @@ alias ls='ls -G'
 alias vi='TERM=screen-256color vim'
 alias vim='TERM=screen-256color vim'
 alias pman='~/.bin/pman'
-alias flushdns='sudo killall -HUP mDNSResponder'
+alias flushdns='sudo discoveryutil udnsflushcaches'
 alias tug="echo \"You're an idiot and can't spell tig properly\""
 alias tmuxnew='tmux -2 -S /var/tmux/pairing new-session -s TMUXPAIR'
 alias tmuxjoin='tmux -2 -S /var/tmux/pairing attach -t TMUXPAIR'
