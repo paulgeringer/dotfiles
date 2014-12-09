@@ -1,6 +1,5 @@
 # vi: ft=sh
 
-
 # Completion for bash and git
 
 if [[ ($(uname) == 'Darwin') ]]

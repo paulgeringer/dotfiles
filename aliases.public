@@ -12,4 +12,5 @@ alias tmuxnew='tmux -2 -S /var/tmux/pairing new-session -s TMUXPAIR'
 alias tmuxjoin='tmux -2 -S /var/tmux/pairing attach -t TMUXPAIR'
 alias dotfiles='cd ~/dotfiles'
 alias dot='cd ~/dotfiles'
-alias rvm="rbenv $@"
+alias rvm="rbenv "
+alias grepps="ps aux | grep "
