@@ -23,8 +23,6 @@ source ~/.ps1_settings
 
 source ~/.vundle_install
 
-source ~/.ssh_fix
-
 if [ -e ~/.locale ]
 then
   source ~/.locale
