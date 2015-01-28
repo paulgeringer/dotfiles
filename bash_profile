@@ -40,9 +40,13 @@ fi
 # Standard Stuff
 export EDITOR=/usr/local/bin/vim
 export VISUAL=$EDITOR
-export TERM=screen-256color
+export TERM=xterm-256color
+if [[ ! -z $TMUX ]]; then
+  export TERM=screen-256color
+fi
 export HISTFILESIZE=50000
 export GREP_OPTIONS="--color=auto"
+export PATH=$PATH:~/Development/lib
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 
@@ -53,7 +57,7 @@ shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # def rbenv crap
-if [[ -s "$HOME/.rbenv" ]]
+if [ -s "$HOME/.rbenv" ]
 then
   export PATH="$HOME/.rbenv/bin:$PATH"
   export RBENV_ROOT=/usr/local/var/rbenv
