@@ -54,7 +54,7 @@ let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
 
 set grepprg=ag\ -nH\ $*
 
-let g:auto_save=1
+"let g:auto_save=1
 
 map <C-N> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -62,6 +62,17 @@ let NERDTreeShowHidden=1
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
 
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_cache_dir = '~/.vim/ctrlp/cache'
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn|DS_Store)$',
+  \ 'file': '\v\.(jpg|gif|pyc|swp|pid|scssc)$',
+  \ }
+
+
+nnoremap <Leader>t :CtrlP<CR>
+nnoremap <Leader>be :CtrlPBuffer<CR>
 nnoremap <Leader>sp :set paste!<CR>
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>so :so %<CR>

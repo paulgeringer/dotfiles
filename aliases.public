@@ -3,8 +3,8 @@
 # Random useful aliases
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias ls='ls -G'
-alias vi='TERM=screen-256color vim'
-alias vim='TERM=screen-256color vim'
+#alias vi='TERM=screen-256color vim'
+#alias vim='TERM=screen-256color vim'
 alias pman='~/.bin/pman'
 alias flushdns='sudo discoveryutil udnsflushcaches'
 alias tug="echo \"You're an idiot and can't spell tig properly\""
@@ -15,3 +15,5 @@ alias dot='cd ~/dotfiles'
 alias rvm="rbenv "
 alias grepps="ps aux | grep "
 alias proxy="ssh -D 8080 -C -N work &"
+alias ec="emacsclient"
+alias itst='/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/MacOS/itms/share/iTMSTransporter.woa/iTMSTransporter'
