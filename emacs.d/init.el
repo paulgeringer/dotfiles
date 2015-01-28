@@ -33,4 +33,4 @@
 (load-file "~/.emacs.d/color-theme-tomorrow.el")
 (require 'color-theme-tomorrow)
 (color-theme-tomorrow--define-theme night)
-(require 'helm-config)
+;;(require 'helm-config)
