@@ -1,6 +1,11 @@
 #!/bin/bash
 
-STATE=$1
+if [[ -n $1 ]]
+then
+  STATE=$1
+else
+  STATE=on
+fi
 
 set_socks_proxy() {
   sudo networksetup -setsocksfirewallproxy "Wi-Fi" 127.0.0.1 8080

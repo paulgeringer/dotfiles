@@ -43,6 +43,7 @@ export VISUAL=$EDITOR
 export TERM=screen-256color
 export HISTFILESIZE=50000
 export GREP_OPTIONS="--color=auto"
+export PATH=/Users/paulgeringer/lib:$PATH
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 

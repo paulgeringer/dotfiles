@@ -14,4 +14,4 @@ alias dotfiles='cd ~/dotfiles'
 alias dot='cd ~/dotfiles'
 alias rvm="rbenv "
 alias grepps="ps aux | grep "
-alias proxy="ssh -D 8080 -C -N work &"
+alias proxy="ssh -D 8080 -C -N work > /dev/null 2>&1 &"
