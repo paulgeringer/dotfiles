@@ -76,13 +76,14 @@ nnoremap <Leader>be :CtrlPBuffer<CR>
 nnoremap <Leader>sp :set paste!<CR>
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>so :so %<CR>
+nnoremap <Leader>svr :so ~/.vimrc<CR>
 nnoremap <Leader>bu :PluginInstall<CR>
 nnoremap <Leader>vrc :e ~/.vimrc<CR>
 nnoremap <Leader>bpr :e ~/.bash_profile<CR>
 nnoremap <Leader>ll :set cursorline!<CR>
 nnoremap <Leader>lk :set cursorcolumn!<CR>
 nnoremap <Leader>ctb :CommandTBuffer<CR>
-nnoremap <Leader>ctf :CommandTFlush<CR>
+nnoremap <Leader>ctf :CtrlPClearCache<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>rr :bufdo e<CR>
 nnoremap <Leader>a :Ag!<CR>
@@ -91,7 +92,7 @@ nnoremap <Leader>rd Orequire 'debugger'; debugger<ESC>
 nnoremap <Leader>rt :!ctags -R<CR>
 nnoremap <Leader>nw :set nowrap!<CR>
 nnoremap <Leader>sh :set hidden!<CR>
-nnoremap <Leader>p :PROSE<CR>
+"nnoremap <Leader>p :PROSE<CR>
 nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
