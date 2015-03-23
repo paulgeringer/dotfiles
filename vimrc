@@ -1,5 +1,5 @@
 syntax enable
-"syntax sync minlines=256 THIS IS EVIL AND SLOWS EVERYTHING
+""syntax sync minlines=256 THIS IS EVIL AND SLOWS EVERYTHING
 
 autocmd FileType crontab setlocal nowritebackup
 autocmd BufRead bash_profile,.bash_profile,aliases,.aliases set syn=sh
@@ -8,14 +8,6 @@ autocmd BufRead,BufNewFile *.pp set filetype=yaml
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
-
-"if exists('$TMUX')
-  "let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-"else
-  "let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  "let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-"endif
 
 set mouse=a
 set hlsearch
@@ -36,8 +28,9 @@ set undoreload=10000
 set backupdir=~/.vim/backups,.
 set directory=~/.vim/backups,.
 set hidden
+set laststatus=2
 
-" Bundle stuff after here
+"" Bundle stuff after here
 
 if filereadable(expand("~/.vundle.bundles"))
   source ~/.vundle.bundles
@@ -54,8 +47,6 @@ let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
 
 set grepprg=ag\ -nH\ $*
 
-"let g:auto_save=1
-
 map <C-N> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
@@ -69,6 +60,14 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn|DS_Store)$',
   \ 'file': '\v\.(jpg|gif|pyc|swp|pid|scssc)$',
   \ }
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+  \ --ignore .git
+  \ --ignore .svn
+  \ --ignore .hg
+  \ --ignore .DS_Store
+  \ --ignore "**/*.pyc"
+  \ -g ""'
 
 
 nnoremap <Leader>t :CtrlP<CR>
@@ -92,7 +91,6 @@ nnoremap <Leader>rd Orequire 'debugger'; debugger<ESC>
 nnoremap <Leader>rt :!ctags -R<CR>
 nnoremap <Leader>nw :set nowrap!<CR>
 nnoremap <Leader>sh :set hidden!<CR>
-"nnoremap <Leader>p :PROSE<CR>
 nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
@@ -102,5 +100,5 @@ nnoremap <Leader>y m`^<S-">*y$``h<ESC> " Copy line to OS X copy/paste buffer
 vnoremap <Leader>y m`<S-">*y``h<ESC> " Copy visual selection to OS X copy/paste buffer
 
 let g:syntastic_mode_map = { 'mode': 'active',
-                               \ 'active_filetypes': ['ruby'],
-                               \ 'passive_filetypes': ['puppet'] }
+                           \ 'active_filetypes': ['ruby'],
+                           \ 'passive_filetypes': ['puppet'] }
