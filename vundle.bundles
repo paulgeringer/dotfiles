@@ -10,13 +10,12 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin '907th/vim-auto-save'
 Plugin 'epmatsw/ag.vim'
 Plugin 'paulgeringer/vim-tomorrow-night-theme'
 Plugin 'stephpy/vim-yaml'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe' # Bug causing blank vim screen?
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
@@ -25,6 +24,7 @@ Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'tpope/vim-endwise'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 filetype plugin indent on
