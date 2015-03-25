@@ -28,6 +28,8 @@ then
   source ~/.locale
 fi
 
+eval "$(hub alias -s)"
+
 # Get my identity added in each shell
 ssh-add > /dev/null 2>&1
 
