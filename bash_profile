@@ -1,3 +1,4 @@
+#!/bin/bash
 # vi: ft=sh
 
 # Completion for bash and git
@@ -6,7 +7,7 @@ if [[ ($(uname) == 'Darwin') ]]
 then
   if [[ (-f $(brew --prefix)/etc/bash_completion) ]]
   then
-    source $(brew --prefix)/etc/bash_completion
+    source "$(brew --prefix)/etc/bash_completion"
   fi
 fi
 
@@ -28,6 +29,11 @@ then
   source ~/.locale
 fi
 
+if [ -e /etc/environment ]
+then
+  source /etc/environment
+fi
+
 eval "$(hub alias -s)"
 
 # Get my identity added in each shell
@@ -47,6 +53,7 @@ if [[ ! -z $TMUX ]]; then
   export TERM=screen-256color
 fi
 export HISTFILESIZE=50000
+export HISTSIZE=""
 export GREP_OPTIONS="--color=auto"
 export PATH=$PATH:~/Development/lib:~/lib
 
