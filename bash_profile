@@ -3,9 +3,9 @@
 
 # Completion for bash and git
 
-if [[ ($(uname) == 'Darwin') ]]
+if [ "$(uname)" == 'Darwin' ]
 then
-  if [[ (-f $(brew --prefix)/etc/bash_completion) ]]
+  if [ -f /usr/local/etc/bash_completion ]
   then
     source "$(brew --prefix)/etc/bash_completion"
   fi
@@ -40,7 +40,7 @@ eval "$(hub alias -s)"
 ssh-add > /dev/null 2>&1
 
 # Hooray work junk
-if [[ "$(whoami)" == "pgeringer" ]]
+if [ "$(whoami)" == "pgeringer" ]
 then
   source ~/.oracle_junk
 fi
@@ -49,7 +49,7 @@ fi
 export EDITOR=/usr/local/bin/vim
 export VISUAL=$EDITOR
 export TERM=xterm-256color
-if [[ ! -z $TMUX ]]; then
+if [ ! -z "$TMUX" ]; then
   export TERM=screen-256color
 fi
 export HISTFILESIZE=50000

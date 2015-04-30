@@ -21,3 +21,8 @@ alias top='htop'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias train='metra_tracker UP-N OTC RAVENSWOOD'
 alias ssh='TERM=screen ssh'
+alias home="metra_tracker 'UP-N' 'OTC' 'RAVENSWOOD'"
+alias work="metra_tracker 'UP-N' 'RAVENSWOOD' 'OTC'"
+alias ev-otc="metra_tracker 'UP-N' 'EVANSTON' 'OTC'"
+alias rv-otc="metra_tracker 'UP-N' 'RAVENSWOOD' 'OTC'"
+alias otc-ev="metra_tracker 'UP-N' 'OTC' 'EVANSTON'"
