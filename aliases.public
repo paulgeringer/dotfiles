@@ -3,8 +3,6 @@
 # Random useful aliases
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias ls='ls -G'
-#alias vi='TERM=screen-256color vim'
-#alias vim='TERM=screen-256color vim'
 alias pman='~/.bin/pman'
 alias flushdns='sudo discoveryutil udnsflushcaches'
 alias tug="echo \"You're an idiot and can't spell tig properly\""
@@ -22,5 +20,4 @@ alias nb='git co master; git co -b'
 alias top='htop'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias train='metra_tracker UP-N OTC RAVENSWOOD'
-#alias irb='bundle exec irb'
-#alias vim='nvim'
+alias ssh='TERM=screen ssh'
