@@ -3,7 +3,7 @@ syntax enable
 
 autocmd FileType crontab setlocal nowritebackup
 autocmd BufRead bash_profile,.bash_profile,aliases,.aliases set syn=sh
-autocmd BufRead,BufNewFile *.pp set filetype=yaml
+"autocmd BufRead,BufNewFile *.pp set filetype=yaml
 
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
