@@ -1,6 +1,9 @@
 #!/bin/bash
 # vi: ft=sh
 
+# Interactivity check
+[[ $- == *i* ]] || return
+
 # Completion for bash and git
 
 if [ "$(uname)" == 'Darwin' ]
@@ -16,7 +19,7 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # So CTRL-S doesn't freeze the terminal, apparently...
-stty start undef stop undef
+#stty start undef stop undef
 
 source ~/.aliases
 
@@ -34,10 +37,15 @@ then
   source /etc/environment
 fi
 
+if [ -d ~/lib ]
+then
+  source ~/lib/git_extras.sh
+fi
+
 eval "$(hub alias -s)"
 
 # Get my identity added in each shell
-ssh-add > /dev/null 2>&1
+#ssh-add > /dev/null 2>&1
 
 # Hooray work junk
 if [ "$(whoami)" == "pgeringer" ]
@@ -55,7 +63,7 @@ fi
 export HISTFILESIZE=50000
 export HISTSIZE=""
 export GREP_OPTIONS="--color=auto"
-export PATH=$PATH:~/Development/lib:~/lib
+export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 
