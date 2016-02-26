@@ -4,7 +4,7 @@
 alias gvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias ls='ls -G'
 alias pman='~/.bin/pman'
-alias flushdns='sudo discoveryutil udnsflushcaches'
+alias flushdns='sudo killall -HUP mDNSResponder'
 alias tug="echo \"You're an idiot and can't spell tig properly\""
 alias tmuxnew='tmux -2 -S /var/tmux/pairing new-session -s TMUXPAIR'
 alias tmuxjoin='tmux -2 -S /var/tmux/pairing attach -t TMUXPAIR'
@@ -17,7 +17,6 @@ alias ec="emacsclient"
 alias itst='/Applications/Xcode.app/Contents/Applications/Application\ Loader.app/Contents/MacOS/itms/share/iTMSTransporter.woa/iTMSTransporter'
 alias pub='cat ~/.ssh/id_rsa.pub'
 alias nb='git co master; git co -b'
-alias top='htop'
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias train='metra_tracker UP-N OTC RAVENSWOOD'
 alias ssh='TERM=screen ssh'
@@ -26,3 +25,5 @@ alias work="metra_tracker 'UP-N' 'RAVENSWOOD' 'OTC'"
 alias ev-otc="metra_tracker 'UP-N' 'EVANSTON' 'OTC'"
 alias rv-otc="metra_tracker 'UP-N' 'RAVENSWOOD' 'OTC'"
 alias otc-ev="metra_tracker 'UP-N' 'OTC' 'EVANSTON'"
+alias greset="git reset --hard HEAD"
+alias curl="curl -Lk"

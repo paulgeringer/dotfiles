@@ -1,13 +1,13 @@
 syntax enable
-""syntax sync minlines=256 THIS IS EVIL AND SLOWS EVERYTHING
+"syntax sync minlines=256 THIS IS EVIL AND SLOWS EVERYTHING
 
 autocmd FileType crontab setlocal nowritebackup
 autocmd BufRead bash_profile,.bash_profile,aliases,.aliases set syn=sh
 "autocmd BufRead,BufNewFile *.pp set filetype=yaml
 
-if exists('$TMUX')  " Support resizing in tmux
-  set ttymouse=xterm2
-endif
+"if exists('$TMUX')  " Support resizing in tmux
+  "set ttymouse=xterm2
+"endif
 
 set mouse=a
 set hlsearch
@@ -53,7 +53,7 @@ let NERDTreeShowHidden=1
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
 
-let g:ctrlp_clear_cache_on_exit = 0
+"let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = '~/.vim/ctrlp/cache'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
@@ -69,6 +69,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
   \ --ignore "**/*.pyc"
   \ -g ""'
 
+let g:paredit_leader = '\'
 
 nnoremap <Leader>t :CtrlP<CR>
 nnoremap <Leader>be :CtrlPBuffer<CR>
@@ -94,6 +95,8 @@ nnoremap <Leader>sh :set hidden!<CR>
 nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
+nnoremap <Leader>rb :RainbowParenthesesToggle<CR>
+nnoremap <Leader>gy :Goyo<CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)

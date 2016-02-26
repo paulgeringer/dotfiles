@@ -6,5 +6,6 @@
 [alias]
 	co = checkout
 	st = status
+	rh = reset
 [color]
 	ui = true
