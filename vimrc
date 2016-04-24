@@ -77,7 +77,7 @@ nnoremap <Leader>sp :set paste!<CR>
 nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>so :so %<CR>
 nnoremap <Leader>svr :so ~/.vimrc<CR>
-nnoremap <Leader>bu :PluginInstall<CR>
+nnoremap <Leader>bu :PluginInstall!<CR>
 nnoremap <Leader>vrc :e ~/.vimrc<CR>
 nnoremap <Leader>bpr :e ~/.bash_profile<CR>
 nnoremap <Leader>ll :set cursorline!<CR>
@@ -97,6 +97,7 @@ nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
 nnoremap <Leader>rb :RainbowParenthesesToggle<CR>
 nnoremap <Leader>gy :Goyo<CR>
+nnoremap <Leader>md :!open % -g -a markoff<ESC><CR>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -109,5 +110,7 @@ nnoremap <Leader>y m`^<S-">*y$``h<ESC> " Copy line to OS X copy/paste buffer
 vnoremap <Leader>y m`<S-">*y``h<ESC> " Copy visual selection to OS X copy/paste buffer
 
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['ruby'],
+                           \ 'active_filetypes': ['ruby', 'elixir'],
                            \ 'passive_filetypes': ['puppet'] }
+let g:syntastic_elixir_checkers = ['elixir']
+let g:syntastic_enable_elixir_checker = 1
