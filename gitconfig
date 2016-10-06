@@ -9,3 +9,5 @@
 	rh = reset
 [color]
 	ui = true
+[diff]
+  compactionHeuristic = true

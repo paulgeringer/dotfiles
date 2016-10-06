@@ -14,8 +14,11 @@ then
   fi
 fi
 
+export HOMEBREW_GITHUB_API_TOKEN='7e25e659de93685d6d7f249021c179a1b4d3f7fa'
+
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
+  :
 fi
 
 # So CTRL-S doesn't freeze the terminal, apparently...
@@ -60,8 +63,8 @@ export TERM=xterm-256color
 if [ ! -z "$TMUX" ]; then
   export TERM=screen-256color
 fi
-export HISTFILESIZE=50000
-export HISTSIZE=""
+export HISTFILESIZE=-1
+export HISTSIZE=-1
 export GREP_OPTIONS="--color=auto"
 export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools
 
@@ -78,6 +81,6 @@ if [ -s "$HOME/.rbenv" ]
 then
   export PATH="$HOME/.rbenv/bin:$PATH"
   export RBENV_ROOT=/usr/local/var/rbenv
-  eval "$(rbenv init -)"
+  eval "$(rbenv init - --no-rehash)"
 fi
 # end rbenv crap

@@ -5,3 +5,4 @@ export TNS_ADMIN="/Applications/Oracle"
 export NLS_LANG="AMERICAN_AMERICA.UTF8"
 export PATH=$PATH:$DYLD_LIBRARY_PATH
 export INSTANT_CLIENT_DIRECTORY="/Applications/Oracle"
+export OCI_DIR="/Applications/Oracle"

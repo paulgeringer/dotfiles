@@ -39,6 +39,7 @@ Plugin 'wannesm/wmgraphviz.vim'
 Plugin 'junegunn/goyo.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'keith/swift'
+Plugin 'reedes/vim-pencil'
 
 call vundle#end()
 filetype plugin indent on
