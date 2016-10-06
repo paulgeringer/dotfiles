@@ -21,11 +21,18 @@ function symlink_dotfiles() {
   fi
 }
 
-function setup_vundle() {
-  if [ ! -d ~/.vim/bundle/Vundle.vim ];
+function setup_vundle_tpm() {
+  VUNDLEDIR=$HOME/.vim/bundle/Vundle.vim
+
+  if [ ! -e "$VUNDLEDIR" ];
   then
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    vim +PluginInstall +qall
+    git clone https://github.com/gmarik/vundle.git "$VUNDLEDIR"
+    vim +PluginInstall +qa
+  fi
+
+  if [ ! -e "$HOME/.tmux/plugins/tpm" ];
+  then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   fi
 }
 
