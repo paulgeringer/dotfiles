@@ -28,8 +28,6 @@ source ~/.aliases
 
 source ~/.ps1_settings
 
-source ~/.vundle_install
-
 if [ -e ~/.locale ]
 then
   source ~/.locale
