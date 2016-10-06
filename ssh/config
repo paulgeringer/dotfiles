@@ -14,4 +14,4 @@ Host doc
 
 Host raspberry
   User pi
-  Hostname 10.0.1.88
+  Hostname 10.0.1.68
