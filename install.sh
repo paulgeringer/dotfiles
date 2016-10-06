@@ -14,7 +14,7 @@ function brew_packages() {
 function symlink_dotfiles() {
   if type rcup && [ -d ~/dotfiles ];
   then
-    rcup -d ~/dotfiles -x install.sh com.googlecode.iterm2.plist brew_leaves
+    rcup -x install.sh -x com.googlecode.iterm2.plist -x brew_leaves # initial set up, so assume .rcrc isn't installed yet
   else
     echo "Missing rcm or your dotfiles aren't where you think they are."
     exit 1
