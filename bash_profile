@@ -61,8 +61,8 @@ export TERM=xterm-256color
 if [ ! -z "$TMUX" ]; then
   export TERM=screen-256color
 fi
-export HISTFILESIZE=-1
-export HISTSIZE=-1
+export HISTFILESIZE=
+export HISTSIZE=
 export GREP_OPTIONS="--color=auto"
 export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools
 
