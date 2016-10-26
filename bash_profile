@@ -14,8 +14,6 @@ then
   fi
 fi
 
-export HOMEBREW_GITHUB_API_TOKEN='7e25e659de93685d6d7f249021c179a1b4d3f7fa'
-
 if [ -f ~/.git-completion.bash ]; then
   source ~/.git-completion.bash
   :
@@ -25,6 +23,10 @@ fi
 #stty start undef stop undef
 
 source ~/.aliases
+
+if [ -f ~/.secrets ]; then
+  source ~/.secrets
+fi
 
 source ~/.ps1_settings
 
