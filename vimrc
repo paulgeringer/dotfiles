@@ -98,6 +98,7 @@ nnoremap <Leader>li :set list!<CR>
 nnoremap <Leader>rb :RainbowParenthesesToggle<CR>
 nnoremap <Leader>gy :Goyo<CR>
 nnoremap <Leader>md :!open % -g -a markoff<ESC><CR>
+nnoremap <S-k> <Nop>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
