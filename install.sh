@@ -3,8 +3,8 @@
 function brew_packages() {
   if type brew > /dev/null 2>&1;
   then
-    brew tap thoughtbot/formulae
-    brew install $(cat brew_leaves)
+    brew tap homebrew/bundle
+    brew bundle
   else
     echo "Install Homebrew first."
     exit 1
