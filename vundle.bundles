@@ -16,7 +16,7 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 "Plugin 'Valloric/YouCompleteMe' # Bug causing blank vim screen?
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
 Plugin 'vim-pandoc/vim-pantondoc'
