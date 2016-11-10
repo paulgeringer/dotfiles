@@ -66,7 +66,7 @@ fi
 export HISTFILESIZE=
 export HISTSIZE=
 export GREP_OPTIONS="--color=auto"
-export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools
+export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools/bin
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 
