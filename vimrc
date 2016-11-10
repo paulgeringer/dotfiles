@@ -39,9 +39,6 @@ endif
 set background=dark
 colorscheme tomorrow-night
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:ycm_key_list_select_completion = ['<c-tab>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
 
