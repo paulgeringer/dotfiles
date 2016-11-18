@@ -118,7 +118,7 @@ brew 'geoip'
 brew 'ghc'
 brew 'gist'
 brew 'git-lfs'
-brew 'gnu-sed'
+brew 'gnu-sed', args: ['with-default-names']
 brew 'gnu-time'
 brew 'libusb'
 brew 'libusb-compat'

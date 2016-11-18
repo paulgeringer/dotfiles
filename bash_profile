@@ -67,6 +67,7 @@ export HISTFILESIZE=
 export HISTSIZE=
 export GREP_OPTIONS="--color=auto"
 export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools/bin
+export RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix)/opt/readline"
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 
