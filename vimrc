@@ -97,6 +97,8 @@ nnoremap <Leader>gy :Goyo<CR>
 nnoremap <Leader>md :!open % -g -a markoff<ESC><CR>
 nnoremap <S-k> <Nop>
 
+command! -bar -bang Q quit<bang>
+
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 "

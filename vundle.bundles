@@ -30,7 +30,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/goyo.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'keith/swift'
-Plugin 'reedes/vim-pencil'
 Plugin 'tpope/vim-repeat'
 
 call vundle#end()
