@@ -78,6 +78,12 @@ shopt -s histappend
 # After each command, save and reload history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  echo "hi"
+  eval "$(ssh-agent -s)"
+  ssh-add -l > /dev/null 2>&1
+fi
+
 # def rbenv crap
 if [ -s "$HOME/.rbenv" ]
 then

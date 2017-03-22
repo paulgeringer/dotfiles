@@ -77,8 +77,8 @@ nnoremap <Leader>svr :so ~/.vimrc<CR>
 nnoremap <Leader>bu :PluginInstall!<CR>
 nnoremap <Leader>vrc :e ~/.vimrc<CR>
 nnoremap <Leader>bpr :e ~/.bash_profile<CR>
-nnoremap <Leader>ll :set cursorline!<CR>
-nnoremap <Leader>lk :set cursorcolumn!<CR>
+"nnoremap <Leader>ll :set cursorline!<CR>
+"nnoremap <Leader>lk :set cursorcolumn!<CR>
 nnoremap <Leader>ctb :CommandTBuffer<CR>
 nnoremap <Leader>ctf :CtrlPClearCache<CR>
 nnoremap <Leader>gb :Gblame<CR>

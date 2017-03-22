@@ -31,6 +31,7 @@ Plugin 'junegunn/goyo.vim'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'keith/swift'
 Plugin 'tpope/vim-repeat'
+Plugin 'lervag/vimtex'
 
 call vundle#end()
 filetype plugin indent on

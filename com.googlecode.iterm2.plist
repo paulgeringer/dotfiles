@@ -337,8 +337,12 @@
 	<string>2404 295 445 136 1920 0 1920 1080 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>815 589 606 456 0 0 1920 1057 </string>
+	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
+	<string>2572 679 616 174 1920 0 1920 1080 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>2570 516 620 392 1920 0 1920 1080 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>2685 475 937 464 1920 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>1920 0 1920 1080 1920 0 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -1215,7 +1219,7 @@
 	<key>NoSyncTimeOfLastPromo</key>
 	<real>454343044.96900803</real>
 	<key>NoSyncTimeOfLastPromoDownload</key>
-	<real>490720905.66987097</real>
+	<real>499359226.17079997</real>
 	<key>NoSyncTipsDisabled</key>
 	<true/>
 	<key>NoSyncTipsToNotShow</key>
@@ -1289,6 +1293,8 @@
 	<integer>8</integer>
 	<key>RightOption</key>
 	<integer>3</integer>
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
@@ -1298,13 +1304,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-10-06T16:44:23Z</date>
-	<key>SUSkippedVersion</key>
-	<string>3.0.10</string>
+	<date>2017-02-14T15:38:53Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<true/>
+	<key>ShowFullScreenTabBar</key>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SmartPlacement</key>
@@ -1346,6 +1352,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.8</string>
+	<string>3.0.13</string>
 </dict>
 </plist>

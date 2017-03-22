@@ -1,4 +1,6 @@
 Host *
+  UseKeychain yes
+  AddKeysToAgent yes
   ServerAliveInterval 30
   #ServerAliveCountMax 2
   #ConnectionAttempts 10
