@@ -3,10 +3,11 @@ Host *
   #ServerAliveCountMax 2
   #ConnectionAttempts 10
   Forwardagent yes
+  #UseKeychain yes
 
 Host vpn
   User pgeringer
-  Hostname pgeringer.backstop.local
+  Hostname 10.220.51.20
 
 Host doc
   User paulgeringer
