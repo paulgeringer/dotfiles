@@ -115,8 +115,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_enable_elixir_checker = 1
 
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd,md call pencil#init()
-  autocmd FileType text            call pencil#init()
-augroup END
+let g:go_template_autocreate = 0
+
+"augroup pencil
+  "autocmd!
+  "autocmd FileType markdown,mkd,md call pencil#init()
+  "autocmd FileType text            call pencil#init()
+"augroup END
