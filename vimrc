@@ -29,6 +29,7 @@ set backupdir=~/.vim/backups,.
 set directory=~/.vim/backups,.
 set hidden
 set laststatus=2
+set completeopt=menu
 
 "" Bundle stuff after here
 
@@ -98,6 +99,7 @@ nnoremap <Leader>md :!open % -g -a markoff<ESC><CR>
 nnoremap <S-k> <Nop>
 
 command! -bar -bang Q quit<bang>
+command! -bar -bang W save %<bang>
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
