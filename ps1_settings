@@ -31,4 +31,5 @@ function get_git_color() {
   fi
 }
 
-export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR\$(get_git_color)$PURPLE\$$NO_COLOR \n∴ "
+export PS1="$RED\u$NO_COLOR$GREEN@$NO_COLOR$BLUE\h$NO_COLOR$YELLOW:\w$NO_COLOR\$(get_git_color)$PURPLE\$$NO_COLOR \n\`if [[ $? = 0 ]]; then echo -e \"${ECHO_NO_COLOR}∴ \"; else echo -e \"${ECHO_BOLD_RED}∴ ${ECHO_NO_COLOR}\"; fi\`"
+
