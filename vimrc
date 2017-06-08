@@ -121,6 +121,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:pymode_options_colorcolumn = 0
 let g:syntastic_python_checker_args='--rcfile=~/.pylintrc'
+let g:syntastic_python_pylint_post_args='--msg-template="{path}:{line}:{column}:{C}: {msg_id} [{symbol}]: {msg}"'
 autocmd FileType py,pyc,python set foldlevel=99
 let g:pymode_lint = 0
 
