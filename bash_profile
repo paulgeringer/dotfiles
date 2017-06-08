@@ -35,6 +35,11 @@ then
   source ~/.locale
 fi
 
+if [ -e ~/.shellcheckrc ]
+then
+  source ~/.shellcheckrc
+fi
+
 if [ -e /etc/environment ]
 then
   source /etc/environment
@@ -69,6 +74,7 @@ export GREP_OPTIONS="--color=auto"
 export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools/bin
 export RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix)/opt/readline"
 export TMUX_SOCK=/var/tmux/pairing
+export PYTHONPATH="/Users/paulgeringer/Development/ghpylibs:$PYTHONPATH"
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 

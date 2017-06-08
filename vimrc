@@ -30,6 +30,7 @@ set directory=~/.vim/backups,.
 set hidden
 set laststatus=2
 set completeopt=menu
+set tags=tags;/
 
 "" Bundle stuff after here
 
@@ -96,6 +97,8 @@ nnoremap <Leader>li :set list!<CR>
 nnoremap <Leader>rb :RainbowParenthesesToggle<CR>
 nnoremap <Leader>gy :Goyo<CR>
 nnoremap <Leader>md :!open % -g -a markoff<ESC><CR>
+nnoremap <Leader>sc :SyntasticCheck<CR>
+nnoremap <Leader>se :Errors<CR>
 nnoremap <S-k> <Nop>
 
 command! -bar -bang Q quit<bang>
@@ -112,12 +115,14 @@ nnoremap <Leader>y m`^<S-">*y$``h<ESC> " Copy line to OS X copy/paste buffer
 vnoremap <Leader>y m`<S-">*y``h<ESC> " Copy visual selection to OS X copy/paste buffer
 
 let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['ruby', 'elixir'],
-                           \ 'passive_filetypes': ['puppet'] }
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_enable_elixir_checker = 1
-
-let g:go_template_autocreate = 0
+                           \ 'active_filetypes': ['ruby'],
+                           \ 'passive_filetypes': ['puppet', 'python'] }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:pymode_options_colorcolumn = 0
+let g:syntastic_python_checker_args='--rcfile=~/.pylintrc'
+autocmd FileType py,pyc,python set foldlevel=99
+let g:pymode_lint = 0
 
 "augroup pencil
   "autocmd!
