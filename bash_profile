@@ -79,16 +79,17 @@ export PYTHONPATH="/Users/paulgeringer/Development/ghpylibs:$PYTHONPATH"
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 
 export HISTCONTROL=ignoredups:erasedups
+
 shopt -s histappend
 
-# After each command, save and reload history
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+#After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -n;"
 
-# def rbenv crap
+#def rbenv crap
 if [ -s "$HOME/.rbenv" ]
 then
   export PATH="$HOME/.rbenv/bin:$PATH"
   export RBENV_ROOT=/usr/local/var/rbenv
   eval "$(rbenv init - --no-rehash)"
 fi
-# end rbenv crap
+#end rbenv crap
