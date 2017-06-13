@@ -47,7 +47,7 @@ fi
 
 if [ -d ~/lib ]
 then
-  source ~/lib/git_extras.sh
+  source ~/lib/*.sh
 fi
 
 eval "$(hub alias -s)"
@@ -83,7 +83,7 @@ export HISTCONTROL=ignoredups:erasedups
 shopt -s histappend
 
 #After each command, save and reload history
-export PROMPT_COMMAND="history -a; history -n;"
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 #def rbenv crap
 if [ -s "$HOME/.rbenv" ]
