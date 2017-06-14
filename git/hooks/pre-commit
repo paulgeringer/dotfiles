@@ -1,0 +1,4 @@
+for file in $(git config --get core.hookspath)/*.sh
+do
+  . "$file"
+done
