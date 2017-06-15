@@ -6,8 +6,9 @@ function brew_packages() {
     brew tap homebrew/bundle
     brew bundle
   else
-    echo "Install Homebrew first."
-    exit 1
+    echo "Installing Homebrew first."
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew_packages
   fi
 }
 
