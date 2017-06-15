@@ -1,4 +1,5 @@
-if [ $(git diff --cached | grep -qi '’\|‘\|“\|”') ]; then
+git diff --cached | grep -qi "’\|‘\|“\|”"
+if [ $? -eq 1 ]; then
   :
 else
   echo "You have a fucking smart quote in your commit dumbass."
