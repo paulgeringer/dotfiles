@@ -1,1 +1,1 @@
-EXCLUDES="install.sh brew_leaves com.googlecode.iterm2.plist"
+EXCLUDES="install.sh Brewfile com.googlecode.iterm2.plist"

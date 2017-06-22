@@ -75,6 +75,7 @@ export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools/bin
 export RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix)/opt/readline"
 export TMUX_SOCK=/var/tmux/pairing
 export PYTHONPATH="/Users/paulgeringer/Development/ghpylibs:$PYTHONPATH"
+export CDPATH="/Users/pgeringer/Development:$CDPATHS"
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 

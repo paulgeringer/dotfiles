@@ -15,12 +15,25 @@ function brew_packages() {
 function symlink_dotfiles() {
   if type rcup > /dev/null 2>&1 && [ -d ~/dotfiles ];
   then
-    rcup -x install.sh -x com.googlecode.iterm2.plist -x brew_leaves # initial set up, so assume .rcrc isn't installed yet
+    rcup -d ~/dotfiles -x install.sh -x com.googlecode.iterm2.plist -x Brewfile
   else
     echo "Missing rcm or your dotfiles aren't where you think they are."
     exit 1
   fi
 }
+
+function switch_shell() {
+  _which_shell=$(which "$SHELL")
+  if [ "$_which_shell" == "/bin/bash" ]; then
+    _which_bash=$(which bash)
+    if [ "$_which_bash" == "/usr/local/bin/bash" ]; then
+      echo "Need to switch to homebrewed bash."
+      sudo 'echo /usr/local/bin/bash >> /etc/shells'
+      chsh -s /usr/local/bin/bash
+    fi
+  fi
+}
+
 
 function setup_vundle_tpm() {
   VUNDLEDIR=$HOME/.vim/bundle/Vundle.vim
@@ -37,6 +50,12 @@ function setup_vundle_tpm() {
   fi
 }
 
+function other_junk() {
+  mkdir -p ~/.vim/undo
+}
+
 brew_packages
 symlink_dotfiles
+switch_shell
 setup_vundle_tpm
+other_junk
