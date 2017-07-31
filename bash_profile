@@ -74,8 +74,9 @@ export GREP_OPTIONS="--color=auto"
 export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools/bin
 export RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix)/opt/readline"
 export TMUX_SOCK=/var/tmux/pairing
-export PYTHONPATH="/Users/paulgeringer/Development/ghpylibs:$PYTHONPATH"
-export CDPATH="/Users/pgeringer/Development:$CDPATHS"
+export PYTHONPATH=~/Development/ghpylibs/python:~/Development/busboy/fabric/libs:~/Development/garcli/src
+export WORKON_HOME=~/.venvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 

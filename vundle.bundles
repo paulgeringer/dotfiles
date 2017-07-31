@@ -26,6 +26,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/goyo.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'python-mode/python-mode'
+Plugin 'elubow/cql-vim'
 
 call vundle#end()
 filetype plugin indent on
