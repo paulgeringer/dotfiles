@@ -1,5 +1,5 @@
 PEPTOOL=$(which pep8)
-DIFFS="$(git diff --staged -z HEAD -U0 | $PEPTOOL --diff --max-line-length 80)"
+DIFFS="$(git diff --staged -z HEAD -U0 | $PEPTOOL --diff --max-line-length 240)"
 
 if [ "$DIFFS" ]; then
 EOF
