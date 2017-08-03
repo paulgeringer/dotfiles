@@ -1,0 +1,18 @@
+[user]
+	name = Paul Geringer
+	email = paul.j.geringer@gmail.com
+[push]
+	default = current
+[alias]
+	co = checkout
+	st = status
+	rh = reset
+[color]
+	ui = true
+[diff]
+  compactionHeuristic = true
+[url "git@github.com:"]
+	insteadOf = https://github.com
+[core]
+	hooksPath = /Users/pgeringer/.git/hooks
+	excludesfile = /Users/pgeringer/.gitignore
