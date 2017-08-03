@@ -1,0 +1,19 @@
+Host *
+  User pgeringer
+  ServerAliveInterval 30
+  #ServerAliveCountMax 2
+  #ConnectionAttempts 10
+  Forwardagent yes
+  #UseKeychain yes
+
+Host vpn
+  User pgeringer
+  Hostname 10.220.51.20
+
+Host doc
+  User paulgeringer
+  Hostname 104.236.11.196
+
+Host raspberry
+  User pi
+  Hostname 10.0.1.68
