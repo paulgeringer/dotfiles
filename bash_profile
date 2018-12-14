@@ -28,6 +28,7 @@ if [ -f ~/.secrets ]; then
   source ~/.secrets
 fi
 
+export _HOSTNAME="pgeringer"
 source ~/.ps1_settings
 
 if [ -e ~/.locale ]
@@ -47,7 +48,10 @@ fi
 
 if [ -d ~/lib ]
 then
-  source ~/lib/*.sh
+  for file in ~/lib/*.sh;
+  do
+    source "$file"
+  done
 fi
 
 eval "$(hub alias -s)"
@@ -58,7 +62,8 @@ eval "$(hub alias -s)"
 # Hooray work junk
 if [ "$(whoami)" == "pgeringer" ]
 then
-  source ~/.oracle_junk
+  #source ~/.oracle_junk
+  :
 fi
 
 # Standard Stuff
@@ -68,24 +73,32 @@ export TERM=xterm-256color
 if [ ! -z "$TMUX" ]; then
   export TERM=screen-256color
 fi
+brew_prefix=$(brew --prefix)
 export HISTFILESIZE=
 export HISTSIZE=
 export GREP_OPTIONS="--color=auto"
-export PATH=$PATH:~/Development/lib:~/lib:~/Development/devtools/bin
-export RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix)/opt/readline"
+export PATH=/usr/local/opt/python@2/libexec/bin:$PATH:~/Development/lib:~/lib
+export RUBY_CONFIGURE_OPTS=--with-readline-dir="${brew_prefix:-/usr/local}/opt/readline"
 export TMUX_SOCK=/var/tmux/pairing
-export PYTHONPATH=~/Development/ghpylibs/python:~/Development/busboy/fabric/libs:~/Development/garcli/src
 export WORKON_HOME=~/.venvs
-source /usr/local/bin/virtualenvwrapper.sh
+export HOMEBREW_AUTO_UPDATE_SECS=3600
+#source /usr/local/bin/virtualenvwrapper.sh
 
 ## TMUX WINDOW HISTORY SHARING GROSSNESS
 
-export HISTCONTROL=ignoredups:erasedups
+export HISTCONTROL=ignoredups:erasedups:ignoreboth
 
 shopt -s histappend
 
 #After each command, save and reload history
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# Fzf stuff
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_COMPLETION_TRIGGER='~~'
+export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore "**/*.pyc" -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+complete -F _fzf_path_completion -o default -o bashdefault tig
 
 #def rbenv crap
 if [ -s "$HOME/.rbenv" ]
@@ -95,3 +108,13 @@ then
   eval "$(rbenv init - --no-rehash)"
 fi
 #end rbenv crap
+
+#def pyenv crap
+if command -v pyenv 1>/dev/null 2>&1;
+then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init - --no-rehash)"
+  eval "$(pyenv virtualenv-init - --no-rehash)"
+fi
+#end pyenv crap

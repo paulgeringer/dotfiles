@@ -117,21 +117,47 @@ vnoremap <Leader>y m`<S-">*y``h<ESC> " Copy visual selection to OS X copy/paste 
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby'],
                            \ 'passive_filetypes': ['puppet', 'python'] }
-"let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_checkers=['pep8']
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_python_flake8_args='--max-line-length=240'
-let g:syntastic_python_pep8_args='--max-line-length=240'
-"let g:syntastic_auto_loc_list = 0
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--config=/Users/pgeringer/Development/ghpylibs/tox.ini'
+
 "let g:syntastic_python_checker_args='--rcfile=~/.pylintrc'
 "let g:syntastic_python_pylint_post_args='--msg-template="{path}:{line}:{column}:{C}: {msg_id} [{symbol}]: {msg}"'
-"autocmd FileType py,pyc,python set foldlevel=99
-"let g:pymode_lint = 0
-"let g:pymode_rope = 0
-"let g:pymode_options_colorcolumn = 0
+"let g:syntastic_always_populate_loc_list = 1
+autocmd FileType py,pyc,python set foldlevel=99
+let g:pymode_lint = 0
+let g:pymode_options_colorcolumn = 0
+let g:pymode_rope = 0
+
+augroup unset_folding_in_insert_mode
+    autocmd!
+    autocmd InsertEnter *.py setlocal foldmethod=marker
+    autocmd InsertLeave *.py setlocal foldmethod=expr
+augroup END
 
 "augroup pencil
   "autocmd!
   "autocmd FileType markdown,mkd,md call pencil#init()
   "autocmd FileType text            call pencil#init()
 "augroup END
+
+"let g:pymode_indent = 0
+let g:pymode_folding = 0
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-f>"
+let g:UltiSnipsSnippetsDir="~/.vim/Ultisnips"
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+
+"let g:pymod_run=0
+"let g:pymode_options=0
+"let g:pymode_syntax=0
+"let g:pymode_syntax_all=0
+"let g:pymode_syntax_slow_sync=0
+"let g:pymode_trim_whitespaces=0
+"let g:pymode_doc=0
+let g:pymode_rope_lookup_project = 1 
+"let g:pymode_rope_complete_on_dot = 0 
+"let g:pymode_virtualenv = 0
+"let g:pymode_breakpoint = 0
+"let g:pymode_lint_on_write = 0
