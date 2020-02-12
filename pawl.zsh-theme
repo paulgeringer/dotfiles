@@ -1,0 +1,1 @@
+/Users/pgeringer/.oh-my-zsh/themes/pawl.zsh-theme

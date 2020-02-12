@@ -77,7 +77,7 @@ brew_prefix=$(brew --prefix)
 export HISTFILESIZE=
 export HISTSIZE=
 export GREP_OPTIONS="--color=auto"
-export PATH=/usr/local/opt/python@2/libexec/bin:$PATH:~/Development/lib:~/lib
+export PATH=/usr/local/opt/python@2/libexec/bin:$PATH:~/Development/lib:~/lib:~/Development/dockhub
 export RUBY_CONFIGURE_OPTS=--with-readline-dir="${brew_prefix:-/usr/local}/opt/readline"
 export TMUX_SOCK=/var/tmux/pairing
 export WORKON_HOME=~/.venvs

@@ -3,6 +3,7 @@ syntax enable
 
 autocmd FileType crontab setlocal nowritebackup
 autocmd BufRead bash_profile,.bash_profile,aliases,.aliases set syn=sh
+autocmd BufRead vundle.bundles, .vundle.bundles set syn=vim
 "autocmd BufRead,BufNewFile *.pp set filetype=yaml
 
 "if exists('$TMUX')  " Support resizing in tmux
@@ -30,7 +31,7 @@ set directory=~/.vim/backups,.
 set hidden
 set laststatus=2
 set completeopt=menu
-set tags=tags;/
+set tags=~/Development/tags;tags;./tags
 
 "" Bundle stuff after here
 
@@ -41,10 +42,10 @@ endif
 set background=dark
 colorscheme tomorrow-night
 
-let g:ycm_key_list_select_completion = ['<c-tab>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
+"let g:ycm_key_list_select_completion = ['<c-tab>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
 
-set grepprg=ag\ -nH\ $*
+set grepprg=ag\ -nH\ --ignore\ .git\ --ignore\ .DS_Store\ --ignore\ *.pyc\ $*
 
 map <C-N> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -60,23 +61,17 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(jpg|gif|pyc|swp|pid|scssc)$',
   \ }
 
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-  \ --ignore .git
-  \ --ignore .svn
-  \ --ignore .hg
-  \ --ignore .DS_Store
-  \ --ignore "**/*.pyc"
-  \ -g ""'
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
 
-let g:paredit_leader = '\'
+"let g:paredit_leader = '\'
 
-nnoremap <Leader>t :CtrlP<CR>
-nnoremap <Leader>be :CtrlPBuffer<CR>
+nnoremap <Leader>t :Files<CR>
+nnoremap <Leader>be :Buffer<CR>
 nnoremap <Leader>sp :set paste!<CR>
-nnoremap <Leader>nt :NERDTreeToggle<CR>
+"nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>so :so %<CR>
 nnoremap <Leader>svr :so ~/.vimrc<CR>
-nnoremap <Leader>bu :PluginInstall!<CR>
+nnoremap <Leader>bu :PlugInstall!<CR>
 nnoremap <Leader>vrc :e ~/.vimrc<CR>
 nnoremap <Leader>bpr :e ~/.bash_profile<CR>
 nnoremap <Leader>ll :set cursorline!<CR>
@@ -99,7 +94,9 @@ nnoremap <Leader>gy :Goyo<CR>
 nnoremap <Leader>md :!open % -g -a markoff<ESC><CR>
 nnoremap <Leader>sc :SyntasticCheck<CR>
 nnoremap <Leader>se :Errors<CR>
+nnoremap <Leader>p oimport pdb; pdb.set_trace()<CR>
 nnoremap <S-k> <Nop>
+nnoremap <Leader> <ESC>
 
 command! -bar -bang Q quit<bang>
 command! -bar -bang W save %<bang>
@@ -120,6 +117,10 @@ let g:syntastic_mode_map = { 'mode': 'active',
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args='--config=/Users/pgeringer/Development/ghpylibs/tox.ini'
 
+"Brew installed vim is setting the python executable incorrectly to
+"`/usr/local/bin/vim`, which breaks jedi-vim. This fixes it.
+:py3 sys.executable='/Users/pgeringer/.pyenv/versions/3.7.4/bin/python3'
+
 "let g:syntastic_python_checker_args='--rcfile=~/.pylintrc'
 "let g:syntastic_python_pylint_post_args='--msg-template="{path}:{line}:{column}:{C}: {msg_id} [{symbol}]: {msg}"'
 "let g:syntastic_always_populate_loc_list = 1
@@ -127,6 +128,7 @@ autocmd FileType py,pyc,python set foldlevel=99
 let g:pymode_lint = 0
 let g:pymode_options_colorcolumn = 0
 let g:pymode_rope = 0
+let g:vim_json_syntax_concealcursor = 0
 
 augroup unset_folding_in_insert_mode
     autocmd!
@@ -161,3 +163,23 @@ let g:pymode_rope_lookup_project = 1
 "let g:pymode_virtualenv = 0
 "let g:pymode_breakpoint = 0
 "let g:pymode_lint_on_write = 0
+
+" vim-test
+let test#python#runner = 'pytest'
+let test#python#pytest#executable='PYTHONPATH=~/Development/ghpylibs/python:~/Development/busboy/fabric/libs:~/Development/garcli/src:~/Development/busboy/fabric/ pytest'
+let test#strategy= "vtr"
+let g:test#preserve_screen = 1
+"let test#project_root = system("git rev-parse --show-toplevel")
+
+augroup python
+
+  au!
+  au FileType python nmap <Leader>dd <Plug>(pydocstring)
+  au FileType python nmap <leader>nt :TestNearest<cr>
+  au FileType python nmap <leader>ft :TestFile<cr>
+  au FileType python nmap <leader>st :TestSuite<cr>
+  au filetype python nmap <leader>sl :TestLast<cr>
+  au filetype python nmap <leader>vt :TestVisit<cr>
+
+augroup END
+
