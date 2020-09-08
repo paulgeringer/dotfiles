@@ -70,19 +70,10 @@ ZSH_THEME="pawl"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(brew docker fzf git pyenv tig)
 
-if [ "$(uname)" = 'Darwin' ]
-then
-  if [ -f /usr/local/etc/zsh_completion ]
-  then
-    source "$(brew --prefix)/etc/zsh_completion"
-  fi
-fi
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
 
-if [ -f ~/.git-completion.zsh ]; then
-  source ~/.git-completion.zsh
-  :
-fi
-
+autoload -Uz compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 source ~/.fzf.zsh
@@ -172,3 +163,8 @@ if [ -e ~/.aliases.private ]
 then
   source ~/.aliases.private
 fi
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval $(thefuck --alias)
