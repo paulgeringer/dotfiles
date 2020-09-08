@@ -1,0 +1,2 @@
+mkdir -p /var/tmux
+chown -R $(whoami) /var/tmux
