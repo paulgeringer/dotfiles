@@ -40,8 +40,9 @@ function setup_vundle_tpm() {
 
   if [ ! -d "$VUNDLEDIR" ];
   then
-    git clone https://github.com/gmarik/vundle.git "$VUNDLEDIR"
-    vim +PluginInstall +qa
+#    git clone https://github.com/gmarik/vundle.git "$VUNDLEDIR"
+#    vim +PluginInstall +qa
+	echo ""	
   fi
 
   if [ ! -d "$HOME/.tmux/plugins/tpm" ];
@@ -54,8 +55,8 @@ function other_junk() {
   mkdir -p ~/.vim/undo
 }
 
-brew_packages
+#brew_packages
 symlink_dotfiles
-switch_shell
+#switch_shell
 setup_vundle_tpm
 other_junk

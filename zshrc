@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -100,6 +101,9 @@ fi
 setopt inc_append_history
 setopt share_history
 setopt menu_complete
+setopt appendhistory
+setopt sharehistory
+setopt incappendhistory
 bindkey -M menuselect '^M' .accept-line # One enter on menu_complete
 alias jq="noglob jq"
 
@@ -133,15 +137,18 @@ alias jq="noglob jq"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export PATH="$PYENV_ROOT/bin:$HOME/Development/dockhub/bin:/usr/local/Cellar/curl/7.61.1/bin:/usr/local/opt/openssl@1.1/bin:$PATH"
 export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$HOME/Development/dockhub/bin:/usr/local/Cellar/curl/7.61.1/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/sbin:$PATH"
+#export PATH="$HOME/.jenv/versions/1.8/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
+  #eval "$(pyenv virtualenv-init -)"
 fi
-if command -v jenv 1>/dev/null 2>&1; then
-  export PATH="$HOME/.jenv/bin:$PATH"
-  eval "$(jenv init -)"
-fi
+# only uncheck when needed, for some reason this is slow? maybe a bad implementation
+#if command -v jenv 1>/dev/null 2>&1; then
+  #export PATH="$HOME/.jenv/bin:$PATH"
+  #eval "$(jenv init -)"
+#fi
 export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore .tox --ignore .pyc -g ""'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
@@ -153,7 +160,6 @@ _fzf_compgen_dir() {
   ag -i --nocolor --nogroup --hidden --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore .tox --ignore .pyc -g $1 
 }
 
-
 if [ -e ~/.aliases.public ]
 then
   source ~/.aliases.public
@@ -163,8 +169,16 @@ if [ -e ~/.aliases.private ]
 then
   source ~/.aliases.private
 fi
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval $(thefuck --alias)
+
+HISTFILE=/Users/pgeringer/.history_dir/.zsh_history
+HISTSIZE=500000
+SAVEHIST=500000
+setopt appendhistory
+setopt INC_APPEND_HISTORY  
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_SPACE
+setopt extendedglob
