@@ -78,7 +78,7 @@ nnoremap <Leader>ll :set cursorline!<CR>
 nnoremap <Leader>lk :set cursorcolumn!<CR>
 "nnoremap <Leader>ctb :CommandTBuffer<CR>
 nnoremap <Leader>ctf :CtrlPClearCache<CR>
-nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>rr :bufdo e<CR>
 nnoremap <Leader>a :Ag!<CR>
 nnoremap <Leader>hl :set hlsearch!<CR>
@@ -127,7 +127,7 @@ let g:syntastic_aggregate_errors=0
 
 "Brew installed vim is setting the python executable incorrectly to
 "`/usr/local/bin/vim`, which breaks jedi-vim. This fixes it.
-:py3 sys.executable='/Users/pgeringer/.pyenv/versions/3.8.6/bin/python3'
+:py3 sys.executable='/Users/pgeringer/.pyenv/shims/python'
 
 let g:syntastic_python_checker_args='--rcfile=~/.pylintrc'
 "let g:syntastic_python_pylint_post_args='--msg-template="{path}:{line}:{column}:{C}: {msg_id} [{symbol}]: {msg}"'

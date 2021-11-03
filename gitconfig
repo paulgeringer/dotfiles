@@ -16,3 +16,5 @@
 [core]
 	hooksPath = /Users/pgeringer/.git/hooks
 	excludesfile = /Users/pgeringer/.gitignore
+[pull]
+	rebase = false

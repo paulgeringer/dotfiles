@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.pgeringer.brew_update</string>
+        <key>Program</key>
+        <string>/Users/pgeringer/lib/brew_update</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+            <key>PATH</key>
+            <string>/usr/local/bin:/bin:/usr/bin</string>
+        </dict>
+        <key>StandardOutPath</key>
+        <string>/tmp/brew_update.stdout</string>
+        <key>StandardErrorPath</key>
+        <string>/tmp/brew_update.stderr</string>
+        <key>WorkingDirectory</key>
+        <string>/Users/pgeringer/</string>
+        <key>StartCalendarInterval</key>
+        <dict>
+            <key>Hour</key>
+            <integer>0</integer>
+            <key>Minute</key>
+            <integer>5</integer>
+        </dict>
+    </dict>
+</plist>
