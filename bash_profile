@@ -118,3 +118,4 @@ then
   eval "$(pyenv virtualenv-init - --no-rehash)"
 fi
 #end pyenv crap
+. "$HOME/.cargo/env"

@@ -30,7 +30,7 @@ set backupdir=~/.vim/backups,.
 set directory=~/.vim/backups,.
 set hidden
 set laststatus=2
-set completeopt=menu
+"set completeopt=menu
 set tags=~/Development/tags;tags;./tags
 
 "" Bundle stuff after here
@@ -42,18 +42,11 @@ endif
 set background=dark
 colorscheme tomorrow-night
 
-"let g:ycm_key_list_select_completion = ['<c-tab>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<c-s-tab>', '<Up>']
-
 set grepprg=ag\ -nH\ --ignore\ .git\ --ignore\ .DS_Store\ --ignore\ *.pyc\ $*
-
-"map <C-N> :NERDTreeToggle<CR>
-"let NERDTreeShowHidden=1
 
 hi CursorLine cterm=NONE ctermbg=darkblue ctermfg=white guibg=darkblue guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgreen ctermfg=white guibg=darkgreen guifg=white
 
-"let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = '~/.vim/ctrlp/cache'
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = {
@@ -63,20 +56,19 @@ let g:ctrlp_custom_ignore = {
 
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden -g ""'
 
-"let g:paredit_leader = '\'
 
 nnoremap <Leader>t :Files<CR>
 nnoremap <Leader>be :Buffer<CR>
 nnoremap <Leader>sp :set paste!<CR>
-"nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>so :so %<CR>
 nnoremap <Leader>svr :so ~/.vimrc<CR>
 nnoremap <Leader>bu :PlugInstall!<CR>
 nnoremap <Leader>vrc :e ~/.vimrc<CR>
+nnoremap <Leader>vu :e ~/.vundle.bundles<CR>
 nnoremap <Leader>bpr :e ~/.bash_profile<CR>
+nnoremap <Leader>zpr :e ~/.zshrc<CR>
 nnoremap <Leader>ll :set cursorline!<CR>
 nnoremap <Leader>lk :set cursorcolumn!<CR>
-"nnoremap <Leader>ctb :CommandTBuffer<CR>
 nnoremap <Leader>ctf :CtrlPClearCache<CR>
 nnoremap <Leader>gb :Git blame<CR>
 nnoremap <Leader>rr :bufdo e<CR>
@@ -89,9 +81,6 @@ nnoremap <Leader>sh :set hidden!<CR>
 nnoremap <Leader>gg gggqG<CR>
 nnoremap <Leader>mm :WHITSPC<CR>
 nnoremap <Leader>li :set list!<CR>
-nnoremap <Leader>rb :RainbowParenthesesToggle<CR>
-"nnoremap <Leader>gy :Goyo<CR>
-nnoremap <Leader>md :!open % -g -a markoff<ESC><CR>
 nnoremap <Leader>sc :SyntasticCheck<CR>
 nnoremap <Leader>sr :SyntasticReset<CR>
 nnoremap <Leader>se :Errors<CR>
@@ -115,8 +104,6 @@ vnoremap <Leader>y m`<S-">*y``h<ESC> " Copy visual selection to OS X copy/paste 
 let g:syntastic_mode_map = { 'mode': 'active' } " , 'active_filetypes': ['python'] }
                            "\ 'passive_filetypes': ['puppet', 'bash', 'shell'] }
 let g:syntastic_python_checkers=['python', 'flake8']
-"let g:syntastic_python_pycodestyle_args='--config=/Users/pgeringer/Development/ghpylibs/tox.ini'
-"let g:syntastic_python_flake8_args='--config=/Users/pgeringer/Development/ghpylibs/tox.ini'
 let g:syntastic_always_populate_loc_list=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -127,70 +114,82 @@ let g:syntastic_aggregate_errors=0
 
 "Brew installed vim is setting the python executable incorrectly to
 "`/usr/local/bin/vim`, which breaks jedi-vim. This fixes it.
-:py3 sys.executable='/Users/pgeringer/.pyenv/shims/python'
+:python3 sys.executable="/Users/paulgeringer/.asdf/shims/python"
 
 let g:syntastic_python_checker_args='--rcfile=~/.pylintrc'
-"let g:syntastic_python_pylint_post_args='--msg-template="{path}:{line}:{column}:{C}: {msg_id} [{symbol}]: {msg}"'
-"let g:syntastic_always_populate_loc_list = 1
-"autocmd FileType py,pyc,python set foldlevel=99
-"let g:pymode_lint = 0
-"let g:pymode_options_colorcolumn = 0
-"let g:pymode_rope = 0
-"let g:vim_json_syntax_concealcursor = 0
 
-"augroup unset_folding_in_insert_mode
-    "autocmd!
-    "autocmd InsertEnter *.py setlocal foldmethod=marker
-    "autocmd InsertLeave *.py setlocal foldmethod=expr
-"augroup END
+" OmniSharp: {{{
+let g:OmniSharp_popup_position = 'peek'
+set completeopt=longest,menuone,popuphidden
+" Highlight the completion documentation popup background/foreground the same as
+" the completion menu itself, for better readability with highlighted
+" documentation.
+set completepopup=highlight:Pmenu,border:off
 
-"augroup pencil
-  "autocmd!
-  "autocmd FileType markdown,mkd,md call pencil#init()
-  "autocmd FileType text            call pencil#init()
-"augroup END
+augroup omnisharp_commands
+  autocmd!
 
-"let g:pymode_indent = 0
-"let g:pymode_folding = 0
+  " Show type information automatically when the cursor stops moving.
+  " Note that the type is echoed to the Vim command line, and will overwrite
+  " any other messages in this space including e.g. ALE linting messages.
+  autocmd CursorHold *.cs OmniSharpTypeLookup
 
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-f>"
-"let g:UltiSnipsSnippetsDir="~/.vim/Ultisnips"
-"let g:previm_open_cmd = 'open -a Google\ Chrome'
+  " The following commands are contextual, based on the cursor position.
+  autocmd FileType cs nmap <sile<F25>nt> <buffer> gd <Plug>(omnisharp_go_to_definition)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfu <Plug>(omnisharp_find_usages)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfi <Plug>(omnisharp_find_implementations)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ospd <Plug>(omnisharp_preview_definition)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ospi <Plug>(omnisharp_preview_implementations)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ost <Plug>(omnisharp_type_lookup)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osd <Plug>(omnisharp_documentation)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfs <Plug>(omnisharp_find_symbol)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osfx <Plug>(omnisharp_fix_usings)
+  autocmd FileType cs nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
+  autocmd FileType cs imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
 
-"let g:pymod_run=0
-"let g:pymode_options=0
-"let g:pymode_syntax=0
-"let g:pymode_syntax_all=0
-"let g:pymode_syntax_slow_sync=0
-"let g:pymode_trim_whitespaces=0
-"let g:pymode_doc=0
-"let g:pymode_rope_lookup_project = 1 
-"let g:pymode_rope_complete_on_dot = 0 
-"let g:pymode_virtualenv = 0
-"let g:pymode_breakpoint = 0
-"let g:pymode_lint_on_write = 0
+  " Navigate up and down by method/property/field
+  autocmd FileType cs nmap <silent> <buffer> [[ <Plug>(omnisharp_navigate_up)
+  autocmd FileType cs nmap <silent> <buffer> ]] <Plug>(omnisharp_navigate_down)
+  " Find all code errors/warnings for the current solution and populate the quickfix window
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osgcc <Plug>(omnisharp_global_code_check)
+  " Contextual code actions (uses fzf, vim-clap, CtrlP or unite.vim selector when available)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>osca <Plug>(omnisharp_code_actions)
+  " Repeat the last code action performed (does not use a selector)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
+  autocmd FileType cs xmap <silent> <buffer> <Leader>os. <Plug>(omnisharp_code_action_repeat)
 
-" vim-test
-"let test#python#runner = 'pytest'
-"let test#python#pytest#executable='PYTHONPATH=~/Development/ghpylibs/python:~/Development/busboy/fabric/libs:~/Development/garcli/src:~/Development/busboy/fabric/ pytest'
-"let test#strategy= "vtr"
-"let g:test#preserve_screen = 1
-"let test#project_root = system("git rev-parse --show-toplevel")
+  autocmd FileType cs nmap <silent> <buffer> <Leader>os= <Plug>(omnisharp_code_format)
 
-"augroup python
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osnm <Plug>(omnisharp_rename)
 
-  "au!
-  "au FileType python nmap <Leader>dd <Plug>(pydocstring)
-  "au FileType python nmap <leader>nt :TestNearest<cr>
-  "au FileType python nmap <leader>ft :TestFile<cr>
-  "au FileType python nmap <leader>st :TestSuite<cr>
-  "au filetype python nmap <leader>sl :TestLast<cr>
-  "au filetype python nmap <leader>vt :TestVisit<cr>
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osre <Plug>(omnisharp_restart_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>osst <Plug>(omnisharp_start_server)
+  autocmd FileType cs nmap <silent> <buffer> <Leader>ossp <Plug>(omnisharp_stop_server)
+augroup END
 
-"augroup END
+let g:OmniSharp_popup_position = 'peek'
+if has('nvim')
+  let g:OmniSharp_popup_options = {
+  \ 'winblend': 30,
+  \ 'winhl': 'Normal:Normal,FloatBorder:ModeMsg',
+  \ 'border': 'rounded'
+  \}
+else
+  let g:OmniSharp_popup_options = {
+  \ 'highlight': 'Normal',
+  \ 'padding': [0],
+  \ 'border': [1],
+  \ 'borderchars': ['─', '│', '─', '│', '╭', '╮', '╯', '╰'],
+  \ 'borderhighlight': ['ModeMsg']
+  \}
+endif
+let g:OmniSharp_popup_mappings = {
+\ 'sigNext': '<C-n>',
+\ 'sigPrev': '<C-p>',
+\ 'pageDown': ['<C-f>', '<PageDown>'],
+\ 'pageUp': ['<C-b>', '<PageUp>']
+\}
+" }}}
 
-"let g:qf_loclist_window_bottom=0:
-
-let g:Tlist_Ctags_Cmd="/usr/local/bin/ctags"
+let g:Tlist_Ctags_Cmd="/opt/homebrew/bin/ctags"

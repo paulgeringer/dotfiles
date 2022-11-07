@@ -3,7 +3,7 @@ zmodload zsh/zprof
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/pgeringer/.oh-my-zsh"
+export ZSH="/Users/paulgeringer/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -69,7 +69,7 @@ ZSH_THEME="pawl"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew docker fzf git pyenv tig)
+plugins=(brew docker fzf git tig)
 
 zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
@@ -104,7 +104,7 @@ setopt menu_complete
 setopt appendhistory
 setopt sharehistory
 setopt incappendhistory
-bindkey -M menuselect '^M' .accept-line # One enter on menu_complete
+#bindkey -M menuselect '^M' .accept-line # One enter on menu_complete
 alias jq="noglob jq"
 
 #setopt PROMPT_SUBST
@@ -138,17 +138,17 @@ alias jq="noglob jq"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$HOME/Development/dockhub/bin:/usr/local/Cellar/curl/7.61.1/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/sbin:$PATH"
-#export PATH="$HOME/.jenv/versions/1.8/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PYENV_ROOT/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/sbin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   #eval "$(pyenv virtualenv-init -)"
 fi
-# only uncheck when needed, for some reason this is slow? maybe a bad implementation
-#if command -v jenv 1>/dev/null 2>&1; then
-  #export PATH="$HOME/.jenv/bin:$PATH"
-  #eval "$(jenv init -)"
-#fi
+# Venv
+source /opt/homebrew/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Development
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
+
 export FZF_DEFAULT_COMMAND='ag -i --nocolor --nogroup --ignore .git --ignore .svn --ignore .hg --ignore .DS_Store --ignore .tox --ignore .pyc -g ""'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
@@ -174,7 +174,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 eval $(thefuck --alias)
 
-HISTFILE=/Users/pgeringer/.history_dir/.zsh_history
+HISTFILE=/Users/paulgeringer/.history_dir/.zsh_history
 HISTSIZE=500000
 SAVEHIST=500000
 setopt appendhistory
@@ -182,3 +182,32 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_SPACE
 setopt extendedglob
+
+
+### DOTNET VSCODE BS
+#export DOTNET_MSBUILD_SDK_RESOLVER_SDKS_DIR=$(echo $HOME/.asdf/installs/dotnet-core/3.1.417/sdk/*/Sdks)
+#export DOTNET_MSBUILD_SDK_RESOLVER_SDKS_VER=3.1.417
+#export DOTNET_MSBUILD_SDK_RESOLVER_CLI_DIR=$(echo $HOME/.asdf/installs/dotnet-core/3.1.417)
+#if [ -e ~/.asdf/plugins/dotnet-core/set-dotnet-home.zsh ]; then
+  #. ~/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
+#fi
+#
+#if command -v rbenv 1>/dev/null 2>&1; then
+  #eval "$(rbenv init - zsh)"
+#fi
+# only uncheck when needed, for some reason this is slow? maybe a bad implementation
+#export PATH="$HOME/.jenv/versions/1.8/bin:$PATH"
+#if command -v jenv 1>/dev/null 2>&1; then
+  #export PATH="$HOME/.jenv/bin:$PATH"
+  #eval "$(jenv init -)"
+#fi
+#
+#export ASDF_HOME=$HOME/.asdf
+#if [ -s $ASDF_HOME/shims/virtualenvwrapper.sh ];
+#then
+  #source $ASDF_HOME/shims/virtualenvwrapper.sh
+#fi
+#
+if [ -s $HOME/.cargo/env ]; then
+  source "$HOME/.cargo/env"
+fi
