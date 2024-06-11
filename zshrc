@@ -106,6 +106,7 @@ setopt sharehistory
 setopt incappendhistory
 #bindkey -M menuselect '^M' .accept-line # One enter on menu_complete
 alias jq="noglob jq"
+alias vim="nvim"
 
 #setopt PROMPT_SUBST
 #TRAPWINCH() {
@@ -175,6 +176,11 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 eval $(thefuck --alias)
 
 HISTFILE=/Users/paulgeringer/.history_dir/.zsh_history
+if [ ! -e $HISTFILE ]
+then
+  mkdir /User/paulgeringer/.history_dir
+  touch $HISTFILE
+fi
 HISTSIZE=500000
 SAVEHIST=500000
 setopt appendhistory
